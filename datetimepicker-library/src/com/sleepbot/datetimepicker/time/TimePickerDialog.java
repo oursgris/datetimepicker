@@ -16,9 +16,9 @@ package com.sleepbot.datetimepicker.time;
  */
 
 import android.app.ActionBar.LayoutParams;
+import android.app.DialogFragment;
 import android.graphics.Rect;
 import android.os.Build;
-import android.support.v4.app.DialogFragment;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.text.method.TransformationMethod;
@@ -233,6 +233,7 @@ public class TimePickerDialog extends DialogFragment implements RadialPickerLayo
         mTimePicker.setOnValueSelectedListener(this);
         mTimePicker.setOnKeyListener(keyboardListener);
         mTimePicker.initialize(getActivity(), mInitialHourOfDay, mInitialMinute, mIs24HourMode, mVibrate);
+        mTimePicker.setTag(this.getTag());
         int currentItemShowing = HOUR_INDEX;
         if (savedInstanceState != null &&
                 savedInstanceState.containsKey(KEY_CURRENT_ITEM_SHOWING)) {
